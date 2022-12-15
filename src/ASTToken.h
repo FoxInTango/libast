@@ -14,7 +14,7 @@
  *  序列与序列排除
  *      自然序列
  *      定义序列
- *  位置与位置表示
+ *  位置与位置序列
  *  行为:查找,追加,插入,删除，分割
  *  @|2022:
  *  @+2022:
@@ -24,6 +24,14 @@
  * 
  *  
  */
+
+ typedef struct _ast_ascii_code{
+     
+ }ast_ascii_code;
+
+ const char* AST_ascii_table[] = {
+     
+ };
 
  template <class T>
  class ASTMatch{
@@ -37,6 +45,7 @@ public:
     }
  };
 
+ template <>
  class ASTMatch<wchar_t>{
  
  };
