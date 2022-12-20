@@ -1,3 +1,26 @@
+/** MIT License
+
+Copyright(c) 2022 醉狐狸的舞步
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this softwareand associated documentation files(the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions :
+
+The above copyright noticeand this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
 #ifndef _AST_MATCH_H_
 #define _AST_MATCH_H_
 
@@ -37,19 +60,38 @@
  *  复合特征:
  *      指定范围内，于符合特征的位置的某一相对位置符合另一特征
  * 
+ *  基本符号与基本符号的转义: 反引号 ``
+ *  模式代码文件的行连接: ...  |
+ *  
+ *  基本元素
+ *   1 2 3 a,b,c ...
+ *  复合元素
+ *      通过基本元素组合:
+ *          ab12,293#()#@*(,232!@ ...
+ *      通过基本元素的重复与通配：
+ *          a*3ccbd  -- aaaccbd
+ *          a*=3b
+ *          a[*:index]
+ *      通过基本元素与复合元素的再复合
+ *          
+ * 
  *  模式元素
- *      自然元素
- *      根据描述定义元素
+ *      模式元素的生成：
+ *          自然元素
+ *          根据描述定义元素
  * 
  *  位置元素
- *      自然元素
- *      根据描述定义元素
+ *      位置元素的生成:
+ *          自然元素
+ *          根据描述定义元素
  * 
  *  序列定义与序列运算
  *      自然序列
  *      自定序列
  *  序列通过[]包含,例如 -- 位置元素序列:[0,1,2,3] ，模式元素序列:[x,y,z]
- *  序列与序列之间可以通过运算生成新序列，序列运算包括: 并集运算、交集运算、补集运算。运算符: 
+ *  序列与序列之间可以通过运算生成新序列，序列运算包括: 并运算、交运算、差运算、补运算。
+ *                                              运算符: |       &       /       ^
+ * 
  * 
  *  模式与模式匹配
  * 
@@ -72,6 +114,8 @@
  *     
  * 
  *  location=@[2323,3223,[2,3,4,5]]
+ *  #[1,2,3,4]
+ *  @<1,2,3,[2,4,ab,cc,d]>
  *  location=
  *  index=[a-b,c-w,0-9]
  *  @+2022:
@@ -96,6 +140,36 @@
  * 
  */
 
+/** 集合运算
+ *  并运算
+ * ---------------------
+ * |/////////////------|------------
+ * |/////////////|/////|///////////|
+ * |/////////////|/////|///////////|
+ * |/////////////------|------------
+ * ---------------------
+ * 交运算
+ * ---------------------
+ * |             ------|------------
+ * |             |/////|           |
+ * |             |/////|           |
+ * |             ------|------------
+ * ---------------------
+ * 差运算
+ * ---------------------
+ * |/////////////------|------------
+ * |/////////////|     |           |
+ * |/////////////|     |           |
+ * |/////////////------|------------
+ * ---------------------
+ * 补运算
+ * ---------------------
+ * |/////////////------|------------
+ * |/////////////|     |///////////|
+ * |/////////////|     |///////////|
+ * |/////////////------|------------
+ * ---------------------
+ */
 /** ASTMatchOperator 
  *  序列结合运算符： 
  *  并集:|
@@ -117,6 +191,14 @@
  */
 
 // ASTMatchRange 
+
+typedef struct _AST_ASCII_CODE{
+    char code;
+    char name[8];
+    char discription[32];
+}AST_ASCII_CODE;
+
+extern "C" AST_ASCII_CODE AST_ascii_code_array[];
 
 typedef struct _AST_MATCH_ERROR{
     typedef enum _ast_match_error_type{}ast_match_error_type;

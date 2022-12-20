@@ -1,3 +1,26 @@
+/** MIT License
+
+Copyright(c) 2022 醉狐狸的舞步
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this softwareand associated documentation files(the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions :
+
+The above copyright noticeand this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
 #include "ASTMatch.h"
 #include <vector>
 #include <map>
@@ -9,6 +32,47 @@
 #include <cstring>
 #include <cassert>
 #include <locale>
+
+AST_ASCII_CODE AST_ascii_code_array[] = {
+    {0,"NUL","null"},
+    {0,"SOH","start of headline"},
+    {0,"STX","start of text"},
+    {0,"ETX","end of text"},
+    {0,"EOT","end of transmission"},
+    {0,"ENQ","enquiry"},
+    {0,"ACK","acknowledge"},
+    {0,"BEL","bell"},
+    {0,"BS", "backspace"},
+    {0,"HT", "horizontal tab"},
+    {0,"LF", "NL line feed, new line"},
+    {0,"VT", "vertical tab"},
+    {0,"FF", "NP form feed, new page"},
+    {0,"CR", "carriage return"},
+    {0,"SO", "shift out"},
+    {0,"SI", "shift in"},
+    {0,"DLE", "data link escape"},
+    {0,"DC1", "device control 1"},
+    {0,"DC2", "device control 2"},
+    {0,"DC3", "device control 3"},
+    {0,"DC4", "device control 4"},
+    {0,"NAK", "negative acknowledge"},
+    {0,"SYN", "synchronous idle"},
+    {0,"ETB", "end of trans. block"},
+    {0,"CAN", "cancel"},
+    {0,"EM",  "end of medium"},
+    {0,"SUB", "substitute"},
+    {0,"ESC", "escape"},
+    {0,"FS",  "file separator"},
+    {0,"GS",  "group separator"},
+    {0,"RS",  "record separator"},
+    {0,"US",  "unit separator"},
+    {0," ",   "space"},
+    {0,"!",   "cancel"},
+    {0,"\"",  "cancel"},
+    {0,"#",   "cancel"},
+    {0,"$",   "cancel"},
+    {0,"%",   "cancel"}
+};
 
 class ASTMatchElementImplement{
 public:
