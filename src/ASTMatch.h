@@ -1,6 +1,6 @@
 /** MIT License
 
-Copyright(c) 2022 醉狐狸的舞步
+Copyright(c) 2022 FoxInTango <foxintango@yeah.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this softwareand associated documentation files(the "Software"), to deal
@@ -84,6 +84,7 @@ SOFTWARE.
  *      位置元素的生成:
  *          自然元素
  *          根据描述定义元素
+ *              从位置序列中拣选子序列
  * 
  *  序列定义与序列运算
  *      自然序列
@@ -116,6 +117,7 @@ SOFTWARE.
  *  location=@[2323,3223,[2,3,4,5]]
  *  #[1,2,3,4]
  *  @<1,2,3,[2,4,ab,cc,d]>
+ *  @[1,2,3,[2,4,ab,cc,d]]
  *  location=
  *  index=[a-b,c-w,0-9]
  *  @+2022:
@@ -129,6 +131,9 @@ SOFTWARE.
  *                                                           
  *  @*:[ 20 : a - z / h - w >= 2,a == 3,b < 5] & [0 - 5 < 2] & [xy,ab,cd,xy*,*xy,xy[a,b,c,index]] < 5 | index > 2;
  *  20@*:[ a - z / h - w >= 2 ,a == 3,b < 5] & [0 - 5 < 2] & [xy,ab,cd,xy*,*xy,xy[a,b,c,index]] < 5 | index > 2;
+ * 
+ *  [20,20]:[a - z / h - w >= 2 ,a == 3,b < 5]]
+ *  20,20 : a - z / h - w >= 2 & a,b,c,d | 
  *
  */
 
