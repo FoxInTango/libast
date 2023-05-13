@@ -23,5 +23,4 @@ SOFTWARE.
 #include "ASTDocument.h"
 #include "ASTElement.h"
 #include "ASTError.h"
-#include "ASTMatch.h"
 #include "ASTToken.h"
