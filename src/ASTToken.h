@@ -23,7 +23,13 @@ SOFTWARE.
 #ifndef _AST_TOKEN_H_
 #define _AST_TOKEN_H_
 typedef enum _ASTTokenType{
-
+AST_TT_keyword,
+AST_TT_string,
+AST_TT_string_begin,
+AST_TT_string_end,
+AST_TT_number,
+AST_TT_block_begin,
+AST_TT_block_end
 }ASTTokenType;
 typedef struct _ASTToken {
     ASTTokenType type;
