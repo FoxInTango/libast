@@ -24,3 +24,55 @@ SOFTWARE.
 // numbers texts
 // function
 // class
+
+#ifndef _AST_ELEMENT_H_
+#define _AST_ELEMENT_H_
+#include <libstring/libstring.h>
+#include <libcpp/libcpp.h>
+/**
+ *
+ */
+EXTERN_C_BEGIN
+namespaceBegin(foxintango)
+class ASTContext;
+class ASTDocument;
+class foxintangoAPI ASTElement {
+protected:
+public:
+    ASTElement();
+    ~ASTElement();
+public:
+public:
+    virtual Size appendSubelement(ASTElement* element);
+    virtual Size removeSubelement(ASTElement* element);
+    virtual Size removeSubelement(const unsigned int& index);
+public:
+    virtual int run();
+};
+
+class ASTString :public ASTElement {};
+class ASTNumber :public ASTElement {};
+class ASTArray  :public ASTElement {};
+class ASTObject :public ASTElement {};
+
+class ASTReturn   :public ASTElement {};/** jump to higher level*/
+class ASTBreak    :public ASTElement {};
+class ASTContinue :public ASTElement {};
+
+class ASTScope :public ASTElement {
+public:
+    Map<String,ASTElement*> varMap;
+    Array<ASTElement*> subelements;
+    String documentURL;// debug infomation
+};/** () | {} */
+class ASTExpression :public ASTScope {};
+class ASTFunction :public ASTScope {};
+class ASTSwitch :public ASTScope {};/** if | switch */
+class ASTFor :public ASTScope {};
+class ASTWhile :public ASTScope {};
+class ASTDo :public ASTScope {};
+class ASTIn :public ASTScope {};
+class ASTTry :public ASTScope {};
+namespaceEnd
+EXTERN_C_END
+#endif

@@ -20,21 +20,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-// set keywords
+// block -- block pair
+// numbers texts
+// function
+// class
+// 栈
 
-#ifndef _AST_DOCUMENT_H_
-#define _AST_DOCUMENT_H_
+#ifndef _AST_CONTEXT_H_
+#define _AST_CONTEXT_H_
+#include "ASTDocument.h"
 #include "ASTElement.h"
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-class foxintangoAPI ASTDocument :public ASTScope {
+class foxintangoAPI ASTContext :public ASTScope{
 public:
-/** includes,imports
- */
-    Array<ASTDocument*> documents;
-
+    
 };
 namespaceEnd
 EXTERN_C_END
