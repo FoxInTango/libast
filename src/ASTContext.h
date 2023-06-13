@@ -36,7 +36,14 @@ EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTContext :public ASTScope{
 public:
-    
+Array<ASTElement*> stack;
+Array<ASTDocument*> documents;
+public:
+    ASTContext();
+   ~ASTContext();
+public:
+    Error load(const String& path);
+    Error execute();
 };
 namespaceEnd
 EXTERN_C_END

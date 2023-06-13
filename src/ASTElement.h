@@ -27,6 +27,7 @@ SOFTWARE.
 
 #ifndef _AST_ELEMENT_H_
 #define _AST_ELEMENT_H_
+#include "ASTDefines.h"
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 /**
@@ -47,7 +48,7 @@ public:
     virtual Size removeSubelement(ASTElement* element);
     virtual Size removeSubelement(const unsigned int& index);
 public:
-    virtual int run();
+    virtual int execute(const ASTContext* context,const ASTElement* caller);
 };
 
 class ASTString :public ASTElement {};
@@ -55,7 +56,10 @@ class ASTNumber :public ASTElement {};
 class ASTArray  :public ASTElement {};
 class ASTObject :public ASTElement {};
 
-class ASTReturn   :public ASTElement {};/** jump to higher level*/
+class ASTReturn   :public ASTElement {
+protected:
+    ASTScope* scope;// return to this scope
+};/** jump to higher level.function only.*/
 class ASTBreak    :public ASTElement {};
 class ASTContinue :public ASTElement {};
 
