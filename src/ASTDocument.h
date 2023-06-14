@@ -25,6 +25,8 @@ SOFTWARE.
 #ifndef _AST_DOCUMENT_H_
 #define _AST_DOCUMENT_H_
 #include "ASTElement.h"
+#include "ASTToken.h"
+#include <liburl/liburl.h>
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
@@ -34,12 +36,13 @@ public:
 /** includes,imports
  */
     Array<ASTDocument*> documents;
+    ASTTokenHandler* token_handler;
 public:
     ASTDocument();
-    ASTDocument(const String& path);
+    ASTDocument(const URL& url);
     ~ASTDocument();
 public:
-    Error load(const String& path);
+    Error load(const URL& url);
 };
 namespaceEnd
 EXTERN_C_END

@@ -22,6 +22,11 @@ SOFTWARE.
 */
 #ifndef _AST_TOKEN_H_
 #define _AST_TOKEN_H_
+#include <libstring/libstring.h>
+#include <libstream/libstream.h>
+#include <libcpp/libcpp.h>
+EXTERN_C_BEGIN
+namespaceBegin(foxintango)
 typedef enum _ASTTokenType{
 AST_TT_keyword,
 AST_TT_string,
@@ -39,4 +44,14 @@ typedef struct _ASTToken {
     unsigned int lineIndex;
     unsigned int charIndex;
 }ASTToken;
+
+class foxintangoAPI ASTTokenHandler{
+public:
+    ASTTokenHandler();
+    virtual ~ASTTokenHandler();
+public:
+    virtual ASTElement* load(const Stream& stream,const Index& index);
+};
+namespaceEnd
+EXTERN_C_END
  #endif
