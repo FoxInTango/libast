@@ -20,38 +20,25 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef _AST_TOKEN_H_
-#define _AST_TOKEN_H_
-#include <libstring/libstring.h>
+
+#ifndef _AST_LANGUAGE_H_
+#define _AST_LANGUAGE_H_
+#include "ASTDefines.h"
 #include <libstream/libstream.h>
+#include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-typedef enum _ASTTokenType{
-AST_TT_keyword,
-AST_TT_string,
-AST_TT_string_begin,
-AST_TT_string_end,
-AST_TT_number,
-AST_TT_block_begin,
-AST_TT_block_end
-}ASTTokenType;
-typedef struct _ASTToken {
-    ASTTokenType type;
-    wchar_t* name;
-    wchar_t* value;
-    wchar_t* documentURL;
-    unsigned int lineIndex;
-    unsigned int charIndex;
-}ASTToken;
-
-class foxintangoAPI ASTTokenHandler{
+class foxintangoAPI ASTLanguage {
 public:
-    ASTTokenHandler();
-    virtual ~ASTTokenHandler();
 public:
-    virtual ASTElement* load(const Stream& stream,const Index& index);
+    ASTLanguage();
+    virtual ~ASTLanguage();
+public:
+    String name();
+    String suffix();
+public:
+    ASTElement* load(const Stream& stream,const Index& index);
 };
 namespaceEnd
 EXTERN_C_END
- #endif

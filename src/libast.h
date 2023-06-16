@@ -20,7 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+#include "ASTContext.h"
 #include "ASTDocument.h"
 #include "ASTElement.h"
+#include "ASTLanguage.h"
+#include "ASTDebug.h"
 #include "ASTError.h"
-#include "ASTToken.h"
+#include "ASTDefines.h"

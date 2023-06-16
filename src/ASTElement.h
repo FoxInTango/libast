@@ -39,6 +39,8 @@ class ASTContext;
 class ASTDocument;
 class foxintangoAPI ASTElement {
 protected:
+    /** Debug Infomation
+     */
 public:
     ASTElement();
     ~ASTElement();
@@ -56,6 +58,13 @@ class ASTNumber :public ASTElement {};
 class ASTArray  :public ASTElement {};
 class ASTObject :public ASTElement {};
 
+class ASTAdd :public ASTElement{};
+class ASTSub :public ASTElement{};
+class ASTMul :public ASTElement{};
+class ASTDiv :public ASTElement{};
+class ASTMod :public ASTElement{};
+
+
 class ASTReturn   :public ASTElement {
 protected:
     ASTScope* scope;// return to this scope
@@ -72,11 +81,13 @@ public:
 class ASTExpression :public ASTScope {};
 class ASTFunction :public ASTScope {};
 class ASTSwitch :public ASTScope {};/** if | switch */
+class ASTCase:public ASTScope {};
 class ASTFor :public ASTScope {};
 class ASTWhile :public ASTScope {};
 class ASTDo :public ASTScope {};
 class ASTIn :public ASTScope {};
 class ASTTry :public ASTScope {};
+class ASTCatch :public ASTScope {};
 namespaceEnd
 EXTERN_C_END
 #endif
