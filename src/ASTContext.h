@@ -30,7 +30,6 @@ SOFTWARE.
 #define _AST_CONTEXT_H_
 #include "ASTDocument.h"
 #include "ASTElement.h"
-#include "ASTLanguage.h"
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
@@ -39,16 +38,13 @@ class foxintangoAPI ASTContext :public ASTScope{
 public:
 Array<ASTElement*> stack;
 Array<ASTDocument*> documents;
-Map<String,ASTLanguage*> languages;
 public:
     ASTContext();
    ~ASTContext();
 public:
-    Error insertLanguage(ASTLanguage* language);
-    Error removeLanguage(ASTLanguage* language);
-    Error removeLanguage(const String& language);
 public:
-    Error load(const String& path);
+    Error insertDocument(const ASTDocument* document);
+    Error removeDocument(const ASTDocument* document);
     Error execute();
 };
 namespaceEnd

@@ -24,7 +24,6 @@ SOFTWARE.
 #include "ASTContext.h"
 #include "ASTDocument.h"
 #include "ASTElement.h"
-#include "ASTLanguage.h"
 #include "ASTDebug.h"
 #include "ASTError.h"
 #include "ASTDefines.h"

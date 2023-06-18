@@ -28,6 +28,7 @@ EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTContext;
 class foxintangoAPI ASTDocument;
+class foxintangoAPI ASTClass;
 class foxintangoAPI ASTScope;
 class foxintangoAPI ASTElement;
 class foxintangoAPI ASTToken;

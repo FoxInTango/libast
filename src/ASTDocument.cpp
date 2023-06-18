@@ -13,7 +13,7 @@ Error ASTDocument::load(const URL& url){
     Index index = 0;
     while(stream.readable()){
         switch(stream[index]){
-        this->token_handler->load(
+        
         default:break;
         }
     }

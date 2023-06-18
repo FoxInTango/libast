@@ -80,6 +80,7 @@ public:
 };/** () | {} */
 class ASTExpression :public ASTScope {};
 class ASTFunction :public ASTScope {};
+class ASTClass :public ASTScope {};
 class ASTSwitch :public ASTScope {};/** if | switch */
 class ASTCase:public ASTScope {};
 class ASTFor :public ASTScope {};
