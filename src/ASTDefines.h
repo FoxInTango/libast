@@ -32,6 +32,7 @@ class foxintangoAPI ASTClass;
 class foxintangoAPI ASTScope;
 class foxintangoAPI ASTElement;
 class foxintangoAPI ASTToken;
+class foxintangoAPI ASTDebug;
 class foxintangoAPI ASTError;
 namespaceEnd
 EXTERN_C_END

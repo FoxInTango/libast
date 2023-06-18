@@ -20,6 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 // block -- block pair
 // numbers texts
 // function
@@ -27,6 +28,7 @@ SOFTWARE.
 
 #ifndef _AST_ELEMENT_H_
 #define _AST_ELEMENT_H_
+#include "ASTDebug.h"
 #include "ASTDefines.h"
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
@@ -35,28 +37,39 @@ SOFTWARE.
  */
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-class ASTContext;
-class ASTDocument;
 class foxintangoAPI ASTElement {
+public:
+    union {
+        ASTDebug debug;
+    } debug;
 protected:
     /** Debug Infomation
      */
+
 public:
     ASTElement();
-    ~ASTElement();
+   ~ASTElement();
 public:
 public:
     virtual Size appendSubelement(ASTElement* element);
     virtual Size removeSubelement(ASTElement* element);
-    virtual Size removeSubelement(const unsigned int& index);
+    virtual Size removeSubelement(const Index& index);
 public:
     virtual int execute(const ASTContext* context,const ASTElement* caller);
 };
 
+class ASTVoid   :public ASTElement{};
 class ASTString :public ASTElement {};
 class ASTNumber :public ASTElement {};
 class ASTArray  :public ASTElement {};
 class ASTObject :public ASTElement {};
+
+class ASTAssign    :public ASTElement {};
+class ASTAddAssign :public ASTElement {};
+class ASTSubAssign :public ASTElement {};
+class ASTMulAssign :public ASTElement {};
+class ASTDivAssign :public ASTElement {};
+class ASTModAssign :public ASTElement {};
 
 class ASTAdd :public ASTElement{};
 class ASTSub :public ASTElement{};
@@ -64,6 +77,19 @@ class ASTMul :public ASTElement{};
 class ASTDiv :public ASTElement{};
 class ASTMod :public ASTElement{};
 
+// logic
+class ASTAnd :public ASTElement {};
+class ASTNot :public ASTElement {};
+class ASTOr  :public ASTElement {};
+
+// bits
+
+class ASTNE :public ASTElement {};// not equal
+class ASTEQ :public ASTElement {};// equal 
+class ASTGT :public ASTElement {};// greater
+class ASTGE :public ASTElement {};// greater or equal
+class ASTST :public ASTElement {};// smaller 
+class ASTSE :public ASTElement {};// smaller or equal
 
 class ASTReturn   :public ASTElement {
 protected:
@@ -76,11 +102,10 @@ class ASTScope :public ASTElement {
 public:
     Map<String,ASTElement*> varMap;
     Array<ASTElement*> subelements;
-    String documentURL;// debug infomation
 };/** () | {} */
 class ASTExpression :public ASTScope {};
+
 class ASTFunction :public ASTScope {};
-class ASTClass :public ASTScope {};
 class ASTSwitch :public ASTScope {};/** if | switch */
 class ASTCase:public ASTScope {};
 class ASTFor :public ASTScope {};
@@ -89,6 +114,14 @@ class ASTDo :public ASTScope {};
 class ASTIn :public ASTScope {};
 class ASTTry :public ASTScope {};
 class ASTCatch :public ASTScope {};
+
+class ASTClass :public ASTScope {};
+class ASTNew :public ASTElement {};
+class ASTDel :public ASTElement {};
+class ASTMemberOf :public ASTElement {};
+
+class ASTSizeOf :public ASTElement{};
+class ASTTypeOf :public ASTElement{};
 namespaceEnd
 EXTERN_C_END
 #endif

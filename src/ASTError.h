@@ -20,3 +20,23 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
+#ifndef _AST_ERROR_H_
+#define _AST_ERROR_H_
+#include <libstring/libstring.h>
+#include <libcpp/libcpp.h>
+EXTERN_C_BEGIN
+namespaceBegin(foxintango)
+
+/**
+ * document error
+ * token error
+ * 
+ * runtime error
+ */
+class ASTError {
+    String description;
+};
+namespaceEnd
+EXTERN_C_END
+#endif
