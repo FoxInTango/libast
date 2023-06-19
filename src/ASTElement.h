@@ -39,6 +39,8 @@ EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTElement {
 public:
+    enum TYPE{};
+public:
     union {
         ASTDebug debug;
     } debug;
@@ -59,6 +61,8 @@ public:
 };
 
 class ASTVoid   :public ASTElement{};
+class ASTTrue   :public ASTElement{};
+class ASTFalse  :public ASTElement{};
 class ASTString :public ASTElement {};
 class ASTNumber :public ASTElement {};
 class ASTArray  :public ASTElement {};

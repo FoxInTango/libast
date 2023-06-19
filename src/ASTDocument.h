@@ -42,7 +42,11 @@ public:
     ASTDocument(const URL& url);
     ~ASTDocument();
 public:
-    Error load(const URL& url);
+    virtual Error load(const URL& url);
+    virtual ASTScope* load_scope();
+    virtual ASTClass* load_class();
+    virtual ASTFunction* load_function();
+    virtual ASTExpression* load_expression();
 };
 namespaceEnd
 EXTERN_C_END
