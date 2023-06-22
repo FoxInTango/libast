@@ -30,10 +30,14 @@ SOFTWARE.
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class ASTDebug{
+public:
     URL documentURL;
     Index lineIndex;
     Index charIndex;
     String description;
+public:
+    ASTDebug();
+   ~ASTDebug();
 };
 namespaceEnd
 EXTERN_C_END
