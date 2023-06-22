@@ -41,9 +41,12 @@ class foxintangoAPI ASTElement {
 public:
     enum TYPE{};
 public:
+/*
     union {
         ASTDebug debug;
     } debug;
+*/
+ASTDebug debug;
 protected:
     /** Debug Infomation
      */
