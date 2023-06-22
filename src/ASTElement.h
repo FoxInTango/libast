@@ -95,6 +95,12 @@ class ASTGE :public ASTElement {};// greater or equal
 class ASTST :public ASTElement {};// smaller 
 class ASTSE :public ASTElement {};// smaller or equal
 
+class ASTCall :public ASTElement {
+public:
+    String name;
+    Index location;
+};
+
 class ASTReturn   :public ASTElement {
 protected:
     ASTScope* scope;// return to this scope
