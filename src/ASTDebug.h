@@ -23,13 +23,12 @@ SOFTWARE.
 
 #ifndef _AST_DEBUG_H_
 #define _AST_DEBUG_H_
-#include "ASTElement.h"
 #include <liburl/liburl.h>
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-class ASTDebug{
+class foxintangoAPI ASTDebug{
 public:
     URL documentURL;
     Index lineIndex;
