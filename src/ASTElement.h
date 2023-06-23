@@ -60,7 +60,7 @@ public:
     virtual Size removeSubelement(ASTElement* element);
     virtual Size removeSubelement(const Index& index);
 public:
-    virtual int execute(const ASTContext* context,const ASTElement* caller);
+    virtual Error execute(const ASTContext* context,const ASTElement* caller);
 };
 
 class ASTVoid   :public ASTElement{};
