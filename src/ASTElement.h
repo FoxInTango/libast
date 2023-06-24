@@ -53,7 +53,7 @@ protected:
 
 public:
     ASTElement();
-   ~ASTElement();
+    virtual ~ASTElement();
 public:
 public:
     virtual Size appendSubelement(ASTElement* element);
@@ -117,7 +117,7 @@ public:
     Array<ASTElement*> subelements;
 public:
     ASTScope();
-    ~ASTScope();
+    virtual ~ASTScope();
 };/** () | {} */
 class ASTExpression :public ASTScope {};
 

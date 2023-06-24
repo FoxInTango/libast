@@ -41,7 +41,7 @@ public:
 public:
     ASTDocument();
     ASTDocument(const URL& url);
-    ~ASTDocument();
+    virtual ~ASTDocument();
 };
 namespaceEnd
 EXTERN_C_END
