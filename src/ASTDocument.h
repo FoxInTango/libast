@@ -37,7 +37,7 @@ public:
     Array<ASTDocument*> documents;
     
     Array<ASTElement*> symbols;
-    Map<String,Index> symbolMap;
+    //Map<String,Index> symbolMap;
 public:
     ASTDocument();
     ASTDocument(const URL& url);
