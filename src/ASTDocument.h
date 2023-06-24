@@ -30,7 +30,7 @@ SOFTWARE.
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-class foxintangoAPI ASTDocument :public ASTScope {
+class foxintangoAPI ASTDocument { //:public ASTScope {
 public:
 /** includes,imports
  */
