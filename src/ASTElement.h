@@ -46,7 +46,7 @@ public:
         ASTDebug debug;
     } debug;
 */
-//ASTDebug debug;
+ASTDebug debug;
 protected:
     /** Debug Infomation
      */
