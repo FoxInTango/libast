@@ -26,14 +26,14 @@ SOFTWARE.
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-class foxintangoAPI ASTContext;
-class foxintangoAPI ASTDocument;
-class foxintangoAPI ASTClass;
-class foxintangoAPI ASTScope;
-class foxintangoAPI ASTElement;
-class foxintangoAPI ASTToken;
-class foxintangoAPI ASTDebug;
-class foxintangoAPI ASTError;
+class  ASTContext;
+class  ASTDocument;
+class  ASTClass;
+class  ASTScope;
+class  ASTElement;
+class  ASTToken;
+class  ASTDebug;
+class  ASTError;
 namespaceEnd
 EXTERN_C_END
 #endif
