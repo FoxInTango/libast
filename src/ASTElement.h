@@ -111,7 +111,7 @@ protected:
 class ASTBreak    :public ASTElement {};
 class ASTContinue :public ASTElement {};
 
-class ASTScope :public ASTElement {
+class ASTScope {//:public ASTElement {
 public:
     Map<String,ASTElement*> varMap;
     Array<ASTElement*> subelements;
