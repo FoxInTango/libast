@@ -29,7 +29,6 @@ SOFTWARE.
 #ifndef _AST_ELEMENT_H_
 #define _AST_ELEMENT_H_
 #include "ASTDebug.h"
-#include "ASTDefines.h"
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 /**
