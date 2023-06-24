@@ -35,14 +35,13 @@ public:
 /** includes,imports
  */
     Array<ASTDocument*> documents;
-    Array<ASTFunction*> functions;
-    Array<ASTClass*> classes;
+    
+    Array<ASTElement*> symbols;
+    Map<String,Index> symbolMap;
 public:
     ASTDocument();
     ASTDocument(const URL& url);
     ~ASTDocument();
-public:
-    virtual Error load(const URL& url);
 };
 namespaceEnd
 EXTERN_C_END
