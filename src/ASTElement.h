@@ -39,14 +39,14 @@ EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTElement {
 public:
-    enum TYPE{};
+    //enum TYPE{};
 public:
 /*
     union {
         ASTDebug debug;
     } debug;
 */
-ASTDebug debug;
+//ASTDebug debug;
 protected:
     /** Debug Infomation
      */
@@ -111,7 +111,7 @@ protected:
 class ASTBreak    :public ASTElement {};
 class ASTContinue :public ASTElement {};
 
-class ASTScope {//:public ASTElement {
+class ASTScope :public ASTElement {
 public:
     Map<String,ASTElement*> varMap;
     Array<ASTElement*> subelements;
