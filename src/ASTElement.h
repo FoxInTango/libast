@@ -37,6 +37,10 @@ SOFTWARE.
  */
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
+
+typedef unsigned int ASTElementType;
+
+const ASTElementType ASTElementType_VOID = 0;
 class foxintangoAPI ASTElement {
 public:
     //enum TYPE{};
@@ -51,7 +55,8 @@ public:
 protected:
     /** Debug Infomation
      */
-
+     String m_name;
+     ASTElementType m_type;
 public:
     ASTElement();
     virtual ~ASTElement();
@@ -62,6 +67,9 @@ public:
     virtual Size removeSubelement(const Index& index);
 public:
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
+public:
+    String name();
+    ASTElementType type();
 };
 
 class ASTVoid   :public ASTElement{};
