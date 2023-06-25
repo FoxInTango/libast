@@ -33,6 +33,7 @@ class  ASTScope;
 class  ASTElement;
 class  ASTToken;
 class  ASTError;
+
 namespaceEnd
 EXTERN_C_END
 #endif
