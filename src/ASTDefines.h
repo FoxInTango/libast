@@ -26,6 +26,7 @@ SOFTWARE.
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
+
 class  ASTContext;
 class  ASTDocument;
 class  ASTClass;
