@@ -24,6 +24,7 @@ SOFTWARE.
 
 #ifndef _AST_DOCUMENT_H_
 #define _AST_DOCUMENT_H_
+#include "ASTContext.h"
 #include "ASTElement.h"
 #include <liburl/liburl.h>
 #include <libstring/libstring.h>
@@ -39,8 +40,8 @@ public:
     Array<ASTElement*> symbols;
     Map<String,Index> symbolMap;
 public:
-    ASTDocument();
-    ASTDocument(const URL& url);
+    ASTDocument(const ASTContext* context);
+    ASTDocument(const ASTContext* context,const URL& url);
     virtual ~ASTDocument();
 };
 namespaceEnd
