@@ -32,6 +32,8 @@ SOFTWARE.
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTDocument :public ASTScope {
+protected:
+    ASTContext* context;
 public:
 /** includes,imports
  */
