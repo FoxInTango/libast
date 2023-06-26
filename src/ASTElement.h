@@ -41,6 +41,7 @@ namespaceBegin(foxintango)
 typedef unsigned int ASTElementType;
 
 const ASTElementType ASTElementType_VOID = 0;
+const ASTElementType ASTElementType_MAX  = 1024;
 class foxintangoAPI ASTElement {
 public:
     //enum TYPE{};
