@@ -2,6 +2,6 @@
 #include <libstream/libstream.h>
 using namespace foxintango;
 
-ASTDocument::ASTDocument() {}
-ASTDocument::ASTDocument(const URL& url) {}
+ASTDocument::ASTDocument(const ASTContext* context){ this->context = context; }
+ASTDocument::ASTDocument(const ASTContext* context, const URL& url){ this->context = context; }
 ASTDocument::~ASTDocument() {}
