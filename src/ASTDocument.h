@@ -42,8 +42,8 @@ public:
     Array<ASTElement*> symbols;
     Map<String,Index> symbolMap;
 public:
-    ASTDocument(const ASTContext* context);
-    ASTDocument(const ASTContext* context,const URL& url);
+    ASTDocument(ASTContext* context);
+    ASTDocument(ASTContext* context,const URL& url);
     virtual ~ASTDocument();
 };
 namespaceEnd
