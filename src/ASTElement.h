@@ -66,6 +66,9 @@ public:
     virtual Size appendSubelement(ASTElement* element);
     virtual Size removeSubelement(ASTElement* element);
     virtual Size removeSubelement(const Index& index);
+
+    virtual Error insertMember();
+    virtual Error removeMember();
 public:
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
 public:
