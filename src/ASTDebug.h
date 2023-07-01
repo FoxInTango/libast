@@ -30,7 +30,7 @@ EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTDebug{
 public:
-    URL documentURL;
+    String documentURL;
     Index lineIndex;
     Index charIndex;
     String description;

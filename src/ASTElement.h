@@ -127,6 +127,7 @@ class ASTContinue :public ASTElement {};
 class ASTScope :public ASTElement {
 public:
     Map<String,ASTElement*> varMap;
+    Array<ASTElement*> stack;
     Array<ASTElement*> subelements;
 public:
     ASTScope();
