@@ -46,10 +46,10 @@ public:
     ASTElement* sysmbolWithName(const String& name);
 
 };
+namespaceEnd
+EXTERN_C_END
+
 #define AST_SYMBOL_EXPORT(x) class x:public ASTElement {public:x();~x();};\
                              class x##_interface{public:x##_interface();~x##_interface();x* create(){ return new x();} };\
                              extern ASTModuleInterface MODULE_INTERFACE_INSTANCE;MODULE_INTERFACE_INSTANCE.insertSymbol(new x_interface(),"");
-
-namespaceEnd
-EXTERN_C_END
 #endif
