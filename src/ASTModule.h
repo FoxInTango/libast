@@ -47,10 +47,9 @@ public:
     ASTElement* sysmbolWithName(const String& name);
 
 };
+Error ASTModuleInsertSymbol(ASTElement* element, const String& name);
 namespaceEnd
 EXTERN_C_END
-
-Error ASTModuleInsertSymbol(ASTElement* element, const String& name);
 
 #define AST_SYMBOL_EXPORT(x) class x:public ASTElement {public:x();~x();};\
                              class x##_interface{public:x##_interface();~x##_interface();x* create(){ return new x();} };\
