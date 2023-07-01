@@ -25,6 +25,7 @@ SOFTWARE.
 #define _AST_MODULE_H_
 #include "ASTElement.h"
 #include <libmodule/libmodule.h>
+#include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTModuleInterface :public ModuleInterface {
