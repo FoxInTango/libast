@@ -50,6 +50,7 @@ public:
                              class x##_interface{public:x##_interface();~x##_interface();x* create(){ return new x();} };\
                              extern ASTModuleInterface MODULE_INTERFACE_INSTANCE;\
                              MODULE_INTERFACE_INSTANCE.insertSymbol(new x_interface(),"");
+
 namespaceEnd
 EXTERN_C_END
 #endif
