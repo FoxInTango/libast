@@ -34,8 +34,17 @@ public:
     virtual ~ASTElementInterface(){};
     virtual ASTElement* create(){ return 0; }
 };
+
+/** TODO : 处理namespace问题
+ */
 #define AST_SYMBOL(x) class x:public ASTElement {public:x();~x();};\
                       class x##_interface:public ASTElementInterface{public:x##_interface(){} ~x##_interface(){} virtual x* create(){ return new x();} };
+#define AST_FUNCTION
+#define AST_CLASS
+#define AST_OPERATOR
+#define AST_VAR
+
+
 #define AST_EXPORT(x) ast_symbols.append(new x##_interface());
 namespaceEnd
 EXTERN_C_END
