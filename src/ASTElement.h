@@ -100,12 +100,21 @@ class ASTMul :public ASTOperatorBinary {};
 class ASTDiv :public ASTOperatorBinary {};
 class ASTMod :public ASTOperatorBinary {};
 
+/** 参考 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators
+ */
 // logic
-class ASTAnd :public ASTOperatorBinary {};
-class ASTNot :public ASTOperatorBinary {};
-class ASTOr  :public ASTOperatorBinary {};
+class ASTLogicAnd :public ASTOperatorBinary {};
+class ASTLogicNot :public ASTOperatorBinary {};
+class ASTLogicOr  :public ASTOperatorBinary {};
 
 // bits
+class ASTBitAnd :public ASTOperatorBinary {};
+class ASTBitNot :public ASTOperatorBinary {};
+class ASTBitOr :public ASTOperatorBinary {};
+class ASTBitXor :public ASTOperatorBinary {};
+
+class ASTBitShiftLeft :public ASTOperatorUnary{};
+class ASTBitShiftRight :public ASTOperatorUnary{};
 
 class ASTNE :public ASTOperatorBinary {};// not equal
 class ASTEQ :public ASTOperatorBinary {};// equal 
