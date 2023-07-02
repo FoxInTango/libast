@@ -68,8 +68,8 @@ public:
     virtual Size removeSubelement(ASTElement* element);
     virtual Size removeSubelement(const Index& index);
 
-    virtual Error insertMember();
-    virtual Error removeMember();
+    virtual Error insertMember(ASTElement* element,const String& name);
+    virtual Error removeMember(const String& name);
 public:
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
 };
