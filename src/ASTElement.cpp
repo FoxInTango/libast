@@ -8,10 +8,10 @@ Size ASTElement::appendSubelement(ASTElement* element) { return 0; }
 Size ASTElement::removeSubelement(ASTElement* element) { return 0; }
 Size ASTElement::removeSubelement(const Index& index)  { return 0; }
 
-virtual Error ASTElement::insertMember(ASTElement* element, const String& name){
+Error ASTElement::insertMember(ASTElement* element, const String& name){
     return Error(1, "ASTElement virtual method.");
 }
-virtual Error ASTElement::removeMember(const String& name){
+Error ASTElement::removeMember(const String& name){
     return Error(1, "ASTElement virtual method.");
 }
 
