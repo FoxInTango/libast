@@ -28,29 +28,9 @@ SOFTWARE.
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-class foxintangoAPI ASTModuleInterface :public ModuleInterface {
-public:
-    ASTModuleInterface();
-    virtual ~ASTModuleInterface();
-public:
-    virtual bool  containClass(const char* name);
-    virtual void* createObject(const char* name, const Model& model = Model());
-
-    virtual bool  containFunction(const char* name);
-    virtual void* exportFunction(const char* name);
-
-    virtual bool containVariable(const char* name);
-    virtual void* exportVariable(const char* name);
-public:
-    Error insertSymbol(ASTElement* element,const String& name);
-    Error removeSymbol(const String& name);
-    ASTElement* sysmbolWithName(const String& name);
-
-};
-Error ASTModuleInsertSymbol(ASTElement* element, const String& name);
-#define AST_SYMBOL_EXPORT(x) class x:public ASTElement {public:x();~x();};\
-                             class x##_interface{public:x##_interface();~x##_interface();x* create(){ return new x();} };\
-                             ASTModuleInsertSymbol(new x_interface(),"");
+#define AST_SYMBOL(x) class x:public ASTElement {public:x();~x();};\
+                      class x##_interface{public:x##_interface();~x##_interface();x* create(){ return new x();} };
+#define AST_EXPORT(x) ast_symbols.append(new x##_interface());
 namespaceEnd
 EXTERN_C_END
 

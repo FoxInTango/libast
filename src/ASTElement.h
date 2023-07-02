@@ -56,8 +56,9 @@ public:
 protected:
     /** Debug Infomation
      */
-     String m_name;
-     ASTElementType m_type;
+    Member<String> ns;
+    Member<String> name;
+    Member<ASTElementType> type;
 public:
     ASTElement();
     virtual ~ASTElement();
@@ -71,9 +72,6 @@ public:
     virtual Error removeMember();
 public:
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
-public:
-    String name();
-    ASTElementType type();
 };
 
 class ASTVoid   :public ASTElement{};
@@ -84,32 +82,39 @@ class ASTNumber :public ASTElement {};
 class ASTArray  :public ASTElement {};
 class ASTObject :public ASTElement {};
 
-class ASTAssign    :public ASTElement {};
-class ASTAddAssign :public ASTElement {};
-class ASTSubAssign :public ASTElement {};
-class ASTMulAssign :public ASTElement {};
-class ASTDivAssign :public ASTElement {};
-class ASTModAssign :public ASTElement {};
+class ASTOperator :public ASTElement{};
+class ASTOperatorUnary :public ASTElement{};
+class ASTOperatorBinary :public ASTElement{};
+class ASTOperatorTernary : public ASTOperator{};
 
-class ASTAdd :public ASTElement{};
-class ASTSub :public ASTElement{};
-class ASTMul :public ASTElement{};
-class ASTDiv :public ASTElement{};
-class ASTMod :public ASTElement{};
+class ASTAssign    :public ASTOperatorBinary {};
+class ASTAddAssign :public ASTOperatorBinary {};
+class ASTSubAssign :public ASTOperatorBinary {};
+class ASTMulAssign :public ASTOperatorBinary {};
+class ASTDivAssign :public ASTOperatorBinary {};
+class ASTModAssign :public ASTOperatorBinary {};
+
+class ASTAdd :public ASTOperatorBinary {};
+class ASTSub :public ASTOperatorBinary {};
+class ASTMul :public ASTOperatorBinary {};
+class ASTDiv :public ASTOperatorBinary {};
+class ASTMod :public ASTOperatorBinary {};
 
 // logic
-class ASTAnd :public ASTElement {};
-class ASTNot :public ASTElement {};
-class ASTOr  :public ASTElement {};
+class ASTAnd :public ASTOperatorBinary {};
+class ASTNot :public ASTOperatorBinary {};
+class ASTOr  :public ASTOperatorBinary {};
 
 // bits
 
-class ASTNE :public ASTElement {};// not equal
-class ASTEQ :public ASTElement {};// equal 
-class ASTGT :public ASTElement {};// greater
-class ASTGE :public ASTElement {};// greater or equal
-class ASTST :public ASTElement {};// smaller 
-class ASTSE :public ASTElement {};// smaller or equal
+class ASTNE :public ASTOperatorBinary {};// not equal
+class ASTEQ :public ASTOperatorBinary {};// equal 
+class ASTGT :public ASTOperatorBinary {};// greater
+class ASTGE :public ASTOperatorBinary {};// greater or equal
+class ASTST :public ASTOperatorBinary {};// smaller 
+class ASTSE :public ASTOperatorBinary {};// smaller or equal
+
+class ASTCondition :public ASTOperatorTernary{};
 
 class ASTCall :public ASTElement {
 public:
