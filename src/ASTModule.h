@@ -28,8 +28,14 @@ SOFTWARE.
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
+class foxintangoAPI ASTElementInterface {
+public:
+    ASTElementInterface(){}
+    virtual ~ASTElementInterface(){};
+    virtual ASTElement* create(){ return 0; }
+};
 #define AST_SYMBOL(x) class x:public ASTElement {public:x();~x();};\
-                      class x##_interface{public:x##_interface(){} ~x##_interface(){} x* create(){ return new x();} };
+                      class x##_interface:public ASTElementInterface{public:x##_interface(){} ~x##_interface(){} virtual x* create(){ return new x();} };
 #define AST_EXPORT(x) ast_symbols.append(new x##_interface());
 namespaceEnd
 EXTERN_C_END
