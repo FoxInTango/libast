@@ -81,12 +81,11 @@ public:
 };
 
 class ASTVoid   :public ASTElement{};
-class ASTTrue   :public ASTElement{};
-class ASTFalse  :public ASTElement{};
-class ASTString :public ASTElement {};
-class ASTNumber :public ASTElement {};
-class ASTArray  :public ASTElement {};
-class ASTObject :public ASTElement {};
+class ASTBool   :public ASTElement{};
+class ASTString :public ASTElement{};
+class ASTNumber :public ASTElement{};
+class ASTArray  :public ASTElement{};
+class ASTObject :public ASTElement{};
 
 class ASTOperator :public ASTElement{};
 class ASTOperatorUnary :public ASTElement{};
