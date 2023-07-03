@@ -70,7 +70,11 @@ public:
 
     virtual Error insertMember(ASTElement* element,const String& name);
     virtual Error removeMember(const String& name);
+private:
+    Error executeInternal(const ASTContext* context, const ASTElement* caller);
 public:
+    /** must be called by subclasses
+     */
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
 };
 

@@ -6,6 +6,6 @@ ASTContext::~ASTContext(){}
 
 Error ASTContext::execute(){
     for(Index index = 0;index < subelements.size();index ++){
-        if(subelements[index]) subelements[index]->execute(this,0);
+        if(subelements[index]) subelements[index]->executeInternal(this,0);
     }
 }
