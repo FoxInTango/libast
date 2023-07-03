@@ -152,6 +152,10 @@ public:
 public:
     ASTScope();
     virtual ~ASTScope();
+public:
+    /** must be called by subclasses
+         */
+    virtual Error execute(const ASTContext* context, const ASTElement* caller);
 };/** () | {} */
 class ASTExpression :public ASTScope {};
 
