@@ -70,7 +70,7 @@ public:
 
     virtual Error insertMember(ASTElement* element,const String& name);
     virtual Error removeMember(const String& name);
-private:
+protected:
     Error executeInternal(const ASTContext* context, const ASTElement* caller);
 public:
     /** must be called by subclasses
