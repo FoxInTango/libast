@@ -44,6 +44,8 @@ const ASTElementType ASTElementType_VOID = 0;
 const ASTElementType ASTElementType_MAX  = 1024;
 class foxintangoAPI ASTElement {
 public:
+    friend class ASTContext;
+public:
     //enum TYPE{};
 public:
 /*
