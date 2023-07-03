@@ -56,9 +56,9 @@ public:
 protected:
     /** Debug Infomation
      */
-    Member<String,ASTElement*> ns(this);
-    Member<String, ASTElement*> name(this);
-    Member<ASTElementType, ASTElement*> type;
+    Member<String> ns;
+    Member<String> name;
+    Member<ASTElementType> type;
 public:
     ASTElement();
     virtual ~ASTElement();
