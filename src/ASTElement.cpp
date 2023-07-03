@@ -23,7 +23,7 @@ Error ASTElement::execute(const ASTContext* context, const ASTElement* caller) {
 ASTScope::ASTScope(){}
 ASTScope::~ASTScope(){}
 
-Error ASTElement::execute(const ASTContext* context, const ASTElement* caller) {
+Error ASTScope::execute(const ASTContext* context, const ASTElement* caller) {
     for (Index index = 0; index < subelements.size(); index++) {
         if (subelements[index]) subelements[index]->execute(this, 0);
     }
