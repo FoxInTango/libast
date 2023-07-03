@@ -25,7 +25,7 @@ ASTScope::~ASTScope(){}
 
 Error ASTScope::execute(const ASTContext* context, const ASTElement* caller) {
     for (Index index = 0; index < subelements.size(); index++) {
-        if (subelements[index]) subelements[index]->execute(this, 0);
+        if (subelements[index]) subelements[index]->execute(context, caller);
     }
 
     ASTElement::execute(context,caller);
