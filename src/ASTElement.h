@@ -40,8 +40,13 @@ namespaceBegin(foxintango)
 
 typedef unsigned int ASTElementType;
 
-const ASTElementType ASTElementType_VOID = 0;
-const ASTElementType ASTElementType_MAX  = 1024;
+const ASTElementType ASTElementType_Element    = 0;
+const ASTElementType ASTElementType_Operator   = 1;
+const ASTElementType ASTElementType_Scope      = 2;
+const ASTElementType ASTElementType_Expression = 3;
+const ASTElementType ASTElementType_Function   = 4;
+const ASTElementType ASTElementType_Class      = 5;
+const ASTElementType ASTElementType_MAX        = 1024;
 class foxintangoAPI ASTElement {
 public:
     friend class ASTContext;
@@ -168,7 +173,7 @@ class ASTIn :public ASTScope {};
 class ASTTry :public ASTScope {};
 class ASTCatch :public ASTScope {};
 
-class ASTClass :public ASTScope {};
+class ASTClass :public ASTScope {};// members / methods
 class ASTNew :public ASTElement {};
 class ASTDel :public ASTElement {};
 class ASTMemberOf :public ASTElement {};
