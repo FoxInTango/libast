@@ -41,6 +41,11 @@ public:
 Array<ASTElement*> stack;
 Array<ASTElement*> globals;
 Array<ASTDocument*> documents;
+
+Array<ASTElement*> symbols;
+Map<String,Index>  symbolMap;
+
+ASTElement* entry;
 public:
     ASTContext();
    ~ASTContext();

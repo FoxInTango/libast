@@ -5,11 +5,7 @@ ASTContext::ASTContext(){}
 ASTContext::~ASTContext(){}
 
 Error ASTContext::execute(){
-    for(Index index = 0;index < subelements.size();index ++){
-        if(subelements[index]) subelements[index]->execute(this,this);
-    }
-
-    return 0;
+    return this->entry ? this->entry->execute(this,this) : 1;
 }
 
 Error ASTContext::loadModule(const char* path){
