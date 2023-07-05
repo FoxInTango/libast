@@ -5,7 +5,7 @@ ASTContext::ASTContext(){}
 ASTContext::~ASTContext(){}
 
 Error ASTContext::execute(){
-    return this->entry ? this->entry->execute(this,this) : 1;
+    return this->entry ? this->entry->execute(this,this) : Error(1,"No Entry.");
 }
 
 Error ASTContext::loadModule(const char* path){
@@ -14,7 +14,7 @@ Error ASTContext::loadModule(const char* path){
     if(module){
         ModuleInterface* interface = module->interface();
         if(interface){
-            Array<ASTElementInterface*>* symbols = interface->exportVariable("AST_MODULE_SYMBOLS");
+            Array<ASTElementInterface*>* symbols = static_cast<Array<ASTElementInterface*>*)(interface->exportVariable("AST_MODULE_SYMBOLS"));
 
             if(symbols){
                 /** insert symbols to context
