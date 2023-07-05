@@ -32,7 +32,7 @@ namespaceBegin(foxintango)
 class foxintangoAPI ASTElementInterface {
 public:
     ASTElementInterface();
-    virtual ~ASTElementInterface() {};
+    virtual ~ASTElementInterface();
 public:
     virtual ASTElement* create();
 };
