@@ -48,8 +48,8 @@ public:
 public:
     Error insertDocument(const ASTDocument* document);
     Error removeDocument(const ASTDocument* document);
-    Error execute();
     Error loadModule(const char* path);
+    Error execute();
 };
 namespaceEnd
 EXTERN_C_END

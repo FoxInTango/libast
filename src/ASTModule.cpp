@@ -1,6 +1,6 @@
 #include "ASTModule.h"
 using namespace foxintango;
 
-Error ASTModuleInsertSymbol(ASTElement* element, const String& name){
-    return 0;
-}
+ASTElementInterface::ASTElementInterface(){}
+ASTElementInterface::~ASTElementInterface(){}
+ASTElement* ASTElementInterface::create() { return 0; }

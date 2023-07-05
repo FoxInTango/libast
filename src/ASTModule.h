@@ -28,11 +28,13 @@ SOFTWARE.
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
+
 class foxintangoAPI ASTElementInterface {
 public:
-    ASTElementInterface(){}
-    virtual ~ASTElementInterface(){};
-    virtual ASTElement* create(){ return 0; }
+    ASTElementInterface();
+    virtual ~ASTElementInterface() {};
+public:
+    virtual ASTElement* create();
 };
 
 /** TODO : 处理namespace问题
@@ -45,7 +47,7 @@ public:
 #define AST_VAR
 
 
-#define AST_EXPORT(x) ast_symbols.append(new x##_interface());
+#define AST_EXPORT(x) AST_MODULE_SYMBOLS.append(new x##_interface());
 namespaceEnd
 EXTERN_C_END
 
