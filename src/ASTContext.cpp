@@ -11,3 +11,12 @@ Error ASTContext::execute(){
 
     return 0;
 }
+
+Error ASTContext::loadModule(const char* path){
+    Module* module = new Module(path);
+
+    if(module){
+        module->interface()->exportVariable("");
+    }
+return 1;
+}

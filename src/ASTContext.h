@@ -28,8 +28,10 @@ SOFTWARE.
 
 #ifndef _AST_CONTEXT_H_
 #define _AST_CONTEXT_H_
+#include "ASTModule.h"
 #include "ASTDocument.h"
 #include "ASTElement.h"
+#include <libmodule/libmodule.h>
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
@@ -47,6 +49,7 @@ public:
     Error insertDocument(const ASTDocument* document);
     Error removeDocument(const ASTDocument* document);
     Error execute();
+    Error loadModule(const char* path);
 };
 namespaceEnd
 EXTERN_C_END
