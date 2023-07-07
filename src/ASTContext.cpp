@@ -5,7 +5,9 @@ ASTContext::ASTContext(){}
 ASTContext::~ASTContext(){}
 
 Error ASTContext::execute(){
-    return this->entry ? this->entry->execute(this,this) : Error(1,"No Entry.");
+    /** 全域
+     */
+    return this->symbols[this->entry] ? this->symbols[this->entry]->execute(this,this) : Error(1,"No Entry.");
 }
 
 Error ASTContext::loadModule(const char* path){
@@ -24,6 +26,7 @@ Error ASTContext::loadModule(const char* path){
                      ASTElementInterface* e = symbols->at(i);
 
                      if(e){
+                     e->context = this;
                      /** switch interface type
                       */
                      }

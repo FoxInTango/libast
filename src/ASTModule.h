@@ -29,7 +29,12 @@ SOFTWARE.
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 
+class ASTContext;
 class foxintangoAPI ASTElementInterface {
+public:
+    friend class ASTContext;
+protected:
+    ASTContext* context;
 public:
     ASTElementInterface();
     virtual ~ASTElementInterface();

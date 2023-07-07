@@ -45,7 +45,7 @@ Array<ASTDocument*> documents;
 Array<ASTElement*> symbols;
 Map<String,Index>  symbolMap;
 
-ASTElement* entry;
+Index entry;
 public:
     ASTContext();
    ~ASTContext();
