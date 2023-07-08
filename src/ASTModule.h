@@ -23,12 +23,11 @@ SOFTWARE.
 
 #ifndef _AST_MODULE_H_
 #define _AST_MODULE_H_
-#include "ASTElement.h"
 #include <libmodule/libmodule.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
-
+class ASTElement;
 class ASTContext;
 class foxintangoAPI ASTElementInterface {
 public:
@@ -47,7 +46,8 @@ public:
 #define AST_SYMBOL(x) class x:public ASTElement {public:x();~x();};\
                       class x##_interface:public ASTElementInterface{public:x##_interface(){} ~x##_interface(){} virtual x* create(){ return new x();} };
 #define AST_FUNCTION
-#define AST_CLASS
+#define AST_CLASS(x) class x:public ASTElement {public:x();~x();};\
+                     class x##_interface:public ASTElementInterface{public:x##_interface(){} ~x##_interface(){} virtual x* create(){ return new x();} };
 #define AST_OPERATOR
 #define AST_VAR
 

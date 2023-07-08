@@ -42,7 +42,7 @@ Array<ASTElement*> stack;
 Array<ASTElement*> globals;
 Array<ASTDocument*> documents;
 
-Array<ASTElement*> symbols;
+Array<ASTModuleInterface*> symbols;
 Map<String,Index>  symbolMap;
 
 Index entry;

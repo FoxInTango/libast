@@ -25,6 +25,7 @@ SOFTWARE.
 #ifndef _AST_DOCUMENT_H_
 #define _AST_DOCUMENT_H_
 #include "ASTContext.h"
+#include "ASTModule.h"
 #include "ASTElement.h"
 #include <liburl/liburl.h>
 #include <libstring/libstring.h>
@@ -39,7 +40,7 @@ public:
  */
     Array<ASTDocument*> documents;
     
-    Array<ASTElement*> symbols;
+    Array<ASTModuleInterface*> symbols;
     Map<String,Index> symbolMap;
 public:
     ASTDocument(ASTContext* context);

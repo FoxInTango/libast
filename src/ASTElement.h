@@ -47,6 +47,13 @@ const ASTElementType ASTElementType_Expression = 3;
 const ASTElementType ASTElementType_Function   = 4;
 const ASTElementType ASTElementType_Class      = 5;
 const ASTElementType ASTElementType_MAX        = 1024;
+
+/** TODO
+ * ASTDefaultClasses 
+ * ASTDefaultOperators
+ * ASTDefaultFunctions
+ * ASTDefaultVars
+ */
 class foxintangoAPI ASTElement {
 public:
     friend class ASTContext;
@@ -81,6 +88,7 @@ protected:
     //Error executeInternal(const ASTContext* context, const ASTElement* caller);
 public:
     /** must be called by subclasses
+     *  return error  -- perfermence 
      */
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
 };
@@ -135,10 +143,24 @@ class ASTSE :public ASTOperatorBinary {};// smaller or equal
 
 class ASTCondition :public ASTOperatorTernary{};
 
-class ASTCall :public ASTElement {
+
+/** 运行时替换(链接)
+ * var function class 
+ */
+class ASTSymbol :public ASTElement{};
+
+class ASTCall :public ASTSymbol {
 public:
     String name;
     Index location;
+};
+
+class ASTMember:public ASTSymbol {
+    String name;
+};
+
+class ASTMethod:public ASTSymbol {
+
 };
 
 class ASTReturn   :public ASTElement {
