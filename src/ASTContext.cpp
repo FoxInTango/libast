@@ -7,7 +7,8 @@ ASTContext::~ASTContext(){}
 Error ASTContext::execute(){
     /** 全域
      */
-    return this->symbols[this->entry] ? this->symbols[this->entry]->execute(this,this) : Error(1,"No Entry.");
+    //return this->symbols[this->entry] ? this->symbols[this->entry]->execute(this,this) : Error(1,"No Entry.");
+    return 0;
 }
 
 Error ASTContext::loadModule(const char* path){

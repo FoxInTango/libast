@@ -24,19 +24,84 @@ SOFTWARE.
 #ifndef _AST_MODULE_H_
 #define _AST_MODULE_H_
 #include <libmodule/libmodule.h>
+#include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class ASTElement;
 class ASTContext;
+enum ASTSymbolType{
+    ASTSymbolType_VAR,
+    ASTSymbolType_OPERATOR,
+    ASTSymbolType_CLASS,
+    ASTSymbolType_FUNCTION
+};
 class foxintangoAPI ASTElementInterface {
 public:
     friend class ASTContext;
 protected:
+    ASTSymbolType type;
+    String name;
     ASTContext* context;
 public:
     ASTElementInterface();
     virtual ~ASTElementInterface();
+public:
+    virtual ASTElement* create();// TODO -- delete
+};
+
+class foxintangoAPI ASTElementInterface_operator : public ASTElementInterface {
+public:
+    friend class ASTContext;
+protected:
+    ASTSymbolType type;
+    String name;
+    ASTContext* context;
+public:
+    ASTElementInterface_operator();
+    virtual ~ASTElementInterface_operator();
+public:
+    virtual ASTElement* create();
+};
+
+class foxintangoAPI ASTElementInterface_class : public ASTElementInterface {
+public:
+    friend class ASTContext;
+protected:
+    ASTSymbolType type;
+    String name;
+    ASTContext* context;
+public:
+    ASTElementInterface_class();
+    virtual ~ASTElementInterface_class();
+public:
+    virtual ASTElement* create();
+};
+
+class foxintangoAPI ASTElementInterface_function : public ASTElementInterface {
+public:
+    friend class ASTContext;
+protected:
+    ASTSymbolType type;
+    String name;
+    ASTContext* context;
+public:
+    ASTElementInterface_function();
+    virtual ~ASTElementInterface_function();
+public:
+    virtual ASTElement* create();
+};
+
+class foxintangoAPI ASTElementInterface_variable : public ASTElementInterface {
+public:
+    friend class ASTContext;
+protected:
+    ASTSymbolType type;
+    String name;
+    ASTContext* context;
+public:
+    ASTElementInterface_variable();
+    virtual ~ASTElementInterface_variable();
 public:
     virtual ASTElement* create();
 };
@@ -46,8 +111,11 @@ public:
 #define AST_SYMBOL(x) class x:public ASTElement {public:x();~x();};\
                       class x##_interface:public ASTElementInterface{public:x##_interface(){} ~x##_interface(){} virtual x* create(){ return new x();} };
 #define AST_FUNCTION
-#define AST_CLASS(x) class x:public ASTElement {public:x();~x();};\
-                     class x##_interface:public ASTElementInterface{public:x##_interface(){} ~x##_interface(){} virtual x* create(){ return new x();} };
+#define AST_CLASS(x) class x:public ASTElement {public:x();~x();};   \
+                     class x##_interface:public ASTElementInterface{ \
+                         public:x##_interface(){} ~x##_interface(){} \
+                         public:Array<String> members;               \
+                         public:virtual x* create(){ return new x();} };
 #define AST_OPERATOR
 #define AST_VAR
 

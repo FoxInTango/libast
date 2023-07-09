@@ -40,8 +40,7 @@ public:
  */
     Array<ASTDocument*> documents;
     
-    Array<ASTModuleInterface*> symbols;
-    Map<String,Index> symbolMap;
+    Array<ASTElementInterface*> symbols;
 public:
     ASTDocument(ASTContext* context);
     ASTDocument(ASTContext* context,const URL& url);
