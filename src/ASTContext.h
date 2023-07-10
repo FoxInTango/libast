@@ -39,12 +39,12 @@ namespaceBegin(foxintango)
 class foxintangoAPI ASTContext :public ASTScope{
 public:
 Array<ASTElement*> stack;
-Array<ASTElement*> globals;
 Array<ASTDocument*> documents;
 
+/** scope
 Array<ASTElementInterface*> symbols;
 Map<String,Index>  symbolMap;
-
+*/
 Index entry;
 public:
     ASTContext();

@@ -88,17 +88,20 @@ protected:
     //Error executeInternal(const ASTContext* context, const ASTElement* caller);
 public:
     /** must be called by subclasses
-     *  return error  -- perfermence 
+     *  return error  -- perfermence : ASTContext.errorStack;
      */
     virtual Error execute(const ASTContext* context,const ASTElement* caller);
+    //virtual void execute(const ASTContext* context, const ASTElement* caller);
 };
 
+/** TODO begin:
+ *  move to ast_standard_module
+ */
 class ASTVoid   :public ASTElement{};
 class ASTBool   :public ASTElement{};
 class ASTString :public ASTElement{};
 class ASTNumber :public ASTElement{};
 class ASTArray  :public ASTElement{};
-class ASTObject :public ASTElement{};
 
 class ASTOperator :public ASTElement{};
 class ASTOperatorUnary :public ASTElement{};
@@ -143,25 +146,19 @@ class ASTSE :public ASTOperatorBinary {};// smaller or equal
 
 class ASTCondition :public ASTOperatorTernary{};
 
-
-/** 运行时替换(链接)
- * var function class 
+/** TODO end:
+ *  move to ast_standard_module
  */
-class ASTSymbol :public ASTElement{};
 
-class ASTCall :public ASTSymbol {
+class ASTCall :public ASTElement {
 public:
-    String name;
-    Index location;
+    ASTElement* target;
 };
 
-class ASTMember:public ASTSymbol {
-    String name;
-};
-
-class ASTMethod:public ASTSymbol {
-
-};
+class ASTCallName :public ASTElement{
+public:
+    String target;
+}
 
 class ASTReturn   :public ASTElement {
 protected:
@@ -172,8 +169,9 @@ class ASTContinue :public ASTElement {};
 
 class ASTScope :public ASTElement {
 public:
-    Map<String,ASTElement*> varMap;
-    Array<ASTElement*> stack;
+    ASTScope* super;
+    //Array<ASTElement*> symbols;
+    Map<String,ASTElement*> symbolMap;
     Array<ASTElement*> subelements;
 public:
     ASTScope();
@@ -196,6 +194,7 @@ class ASTTry :public ASTScope {};
 class ASTCatch :public ASTScope {};
 
 class ASTClass :public ASTScope {};// members / methods
+
 class ASTNew :public ASTElement {};
 class ASTDel :public ASTElement {};
 class ASTMemberOf :public ASTElement {};
