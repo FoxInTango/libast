@@ -97,7 +97,6 @@ public:
 /** TODO begin:
  *  move to ast_standard_module
  */
-class ASTVoid   :public ASTElement{};
 class ASTBool   :public ASTElement{};
 class ASTString :public ASTElement{};
 class ASTNumber :public ASTElement{};
