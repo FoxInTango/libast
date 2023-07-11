@@ -200,6 +200,7 @@ class ASTMemberOf :public ASTElement {};
 
 class ASTSizeOf :public ASTElement{};
 class ASTTypeOf :public ASTElement{};
+
 namespaceEnd
 EXTERN_C_END
 #endif
