@@ -157,7 +157,7 @@ public:
 class ASTCallName :public ASTElement{
 public:
     String target;
-}
+};
 
 class ASTReturn   :public ASTElement {
 protected:
