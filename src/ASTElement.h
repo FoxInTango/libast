@@ -54,6 +54,9 @@ const ASTElementType ASTElementType_MAX        = 1024;
  * ASTDefaultFunctions
  * ASTDefaultVars
  */
+/**
+ * 元素识别 : language :: namespace :: name 
+ */
 class foxintangoAPI ASTElement {
 public:
     friend class ASTContext;
@@ -72,6 +75,7 @@ protected:
      */
     Member<String> ns;
     Member<String> name;
+    Member<String> language;
     Member<ASTElementType> type;
 public:
     ASTElement();
@@ -149,14 +153,41 @@ class ASTCondition :public ASTOperatorTernary{};
  *  move to ast_standard_module
  */
 
+class ASTCallArgument{
+public:
+    /** 参数传递类型
+     * PT_VAL 按值传递
+     * PT_FEF 引用传递
+     */
+    enum PassType{PT_VAL,PT_REF};
+protected:
+    enum PassType passBy;
+    /** 参数类型 -- 类型名
+     * 
+     */
+    String type;
+};
+class ASTCallName;
 class ASTCall :public ASTElement {
 public:
     ASTElement* target;
+    Array<ASTCallArgument> arguments;
+public:
+    ASTCall();
+    ASTCall(const ASTCallName& name);
+public:
+    operator ASTCallName();
 };
 
 class ASTCallName :public ASTElement{
 public:
     String target;
+    Array<ASTCallArgument> arguments;
+public:
+    ASTCallName();
+    ASTCallName(const ASTCall& call);
+public:
+    operator ASTCall();
 };
 
 class ASTReturn   :public ASTElement {
