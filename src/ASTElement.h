@@ -134,10 +134,10 @@ class ASTLogicOr  :public ASTOperatorBinary {};
 // bits
 class ASTBitAnd :public ASTOperatorBinary {};
 class ASTBitNot :public ASTOperatorBinary {};
-class ASTBitOr :public ASTOperatorBinary {};
+class ASTBitOr  :public ASTOperatorBinary {};
 class ASTBitXor :public ASTOperatorBinary {};
 
-class ASTBitShiftLeft :public ASTOperatorUnary{};
+class ASTBitShiftLeft  :public ASTOperatorUnary{};
 class ASTBitShiftRight :public ASTOperatorUnary{};
 
 class ASTNE :public ASTOperatorBinary {};// not equal
