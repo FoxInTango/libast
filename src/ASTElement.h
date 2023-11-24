@@ -77,6 +77,8 @@ protected:
     Member<String> name;
     Member<String> language;
     Member<ASTElementType> type;
+    //Map<String,ASTElement*> members;
+    //template <class String> ASTElement* member();
 public:
     ASTElement();
     virtual ~ASTElement();
