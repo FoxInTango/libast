@@ -1,13 +1,19 @@
 #include "ASTContext.h"
 using namespace foxintango;
 
+/**
+ * Errors
+ *   code :
+ *   desc :
+ */
+
 ASTContext::ASTContext(){}
 ASTContext::~ASTContext(){}
 
 Error ASTContext::execute(){
     /** 全域
      */
-    return this->symbols[this->entry] ? this->symbols[this->entry]->execute(this,this) : Error(1,"No Entry.");
+    return this->symbolMap[this->entry] ? this->symbolMap[this->entry]->execute(this,this) : 1;
     return 0;
 }
 
