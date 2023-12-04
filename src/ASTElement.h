@@ -54,6 +54,7 @@ const ASTElementType ASTElementType_MAX        = 1024;
  * ASTDefaultFunctions
  * ASTDefaultVars
  */
+
 /**
  * 元素识别 : language :: namespace :: name 
  */
