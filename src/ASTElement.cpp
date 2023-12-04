@@ -16,7 +16,7 @@ Error ASTElement::removeMember(const String& name){
     return Error(1, "ASTElement virtual method.");
 }
 
-Error ASTElement::execute(const ASTContext* context, const ASTElement* caller) {
+Error ASTElement::execute(const ASTScope* context, const ASTElement* caller) {
     return 0;
 }
 

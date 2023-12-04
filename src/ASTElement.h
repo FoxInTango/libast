@@ -96,7 +96,7 @@ public:
     /** must be called by subclasses
      *  return error  -- perfermence : ASTContext.errorStack;
      */
-    virtual Error execute(const ASTScope* context,const ASTElement* caller);
+    virtual Error execute(const ASTContext* context,const ASTElement* caller);
     //virtual void execute(const ASTContext* context, const ASTElement* caller);
 };
 
