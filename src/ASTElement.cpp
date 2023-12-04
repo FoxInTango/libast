@@ -9,14 +9,14 @@ Size ASTElement::removeSubelement(ASTElement* element) { return 0; }
 Size ASTElement::removeSubelement(const Index& index)  { return 0; }
 
 Error ASTElement::insertMember(ASTElement* element, const String& name){
-    return Error(1, "ASTElement virtual method.");
+    return 1;//Error(1, "ASTElement virtual method.");
 }
 
 Error ASTElement::removeMember(const String& name){
-    return Error(1, "ASTElement virtual method.");
+    return 1;//Error(1, "ASTElement virtual method.");
 }
 
-Error ASTElement::execute(const ASTScope* context, const ASTElement* caller) {
+Error ASTElement::execute(const ASTContext* context, const ASTElement* caller) {
     return 0;
 }
 
