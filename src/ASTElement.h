@@ -150,6 +150,7 @@ class ASTGE :public ASTOperatorBinary {};// greater or equal
 class ASTST :public ASTOperatorBinary {};// smaller 
 class ASTSE :public ASTOperatorBinary {};// smaller or equal
 
+// 条件运算符
 class ASTCondition :public ASTOperatorTernary{};
 
 /** TODO end:
