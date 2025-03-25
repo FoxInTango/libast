@@ -38,7 +38,7 @@ EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTContext :public ASTScope{
 public:
-Array<ASTElement*> stack;
+Array<ASTElement*>  stack;
 Array<ASTDocument*> documents;
 
 /** scope
