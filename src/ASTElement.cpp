@@ -1,7 +1,7 @@
 #include "ASTElement.h"
 using namespace foxintango;
 
-ASTElement::ASTElement(){ String name = this->name;this->name = name; String* s = this->name;this->name = s;}
+ASTElement::ASTElement(){ /*String name = this->name;this->name = name; String* s = this->name;this->name = s;*/}
 ASTElement::~ASTElement(){}
 
 Size ASTElement::appendSubelement(ASTElement* element) { return 0; }
