@@ -17,6 +17,10 @@ Error ASTContext::execute(){
     return 0;
 }
 
+Error ASTContext::execute(const ASTContext* context,const ASTElement* caller){
+    return 0;
+}
+
 Error ASTContext::loadModule(const char* path){
     Module* module = new Module(path);
 

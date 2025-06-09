@@ -56,6 +56,7 @@ public:
     Error removeDocument(const ASTDocument* document);
     Error loadModule(const char* path);
     Error execute();
+    virtual Error execute(const ASTContext* context,const ASTElement* caller);
 };
 namespaceEnd
 EXTERN_C_END

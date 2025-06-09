@@ -1,4 +1,5 @@
 #include "ASTElement.h"
+#include "ASTContext.h"
 using namespace foxintango;
 
 ASTElement::ASTElement(){ /*String name = this->name;this->name = name; String* s = this->name;this->name = s;*/}
