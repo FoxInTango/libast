@@ -32,6 +32,8 @@ SOFTWARE.
 #include "ASTDefines.h"
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
+#include <map>
+#include <vector>
 /**
  *
  */
@@ -175,7 +177,7 @@ class ASTCallName;
 class ASTCall :public ASTElement {
 public:
     ASTElement* target;
-    Array<ASTCallArgument> arguments;
+    std::vector<ASTCallArgument> arguments;
 public:
     ASTCall();
     ASTCall(const ASTCallName& name);
@@ -186,7 +188,7 @@ public:
 class ASTCallName :public ASTElement{
 public:
     String target;
-    Array<ASTCallArgument> arguments;
+    std::vector<ASTCallArgument> arguments;
 public:
     ASTCallName();
     ASTCallName(const ASTCall& call);
@@ -205,8 +207,8 @@ class ASTScope :public ASTElement {
 public:
     ASTScope* super;
     //Array<ASTElement*> symbols;
-    Map<String,ASTElement*> symbolMap;
-    Array<ASTElement*> subelements;
+    std::map<std::string,ASTElement*> symbolMap;
+    std::vector<ASTElement*> subelements;
 public:
     ASTScope();
     virtual ~ASTScope();

@@ -30,6 +30,8 @@ SOFTWARE.
 #include <liburl/liburl.h>
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
+#include <map>
+#include <vector>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTDocument :public ASTScope {
@@ -38,9 +40,9 @@ protected:
 public:
 /** includes,imports
  */
-    Array<ASTDocument*> documents;
+    std::vector<ASTDocument*> documents;
     
-    Array<ASTElementInterface*> symbols;
+    std::vector<ASTElementInterface*> symbols;
 public:
     ASTDocument(ASTContext* context);
     ASTDocument(ASTContext* context,const URL& url);

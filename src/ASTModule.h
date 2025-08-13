@@ -26,6 +26,8 @@ SOFTWARE.
 #include <libmodule/libmodule.h>
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
+#include <map>
+#include <vector>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class ASTElement;
@@ -41,7 +43,7 @@ public:
     friend class ASTContext;
 protected:
     ASTSymbolType type;
-    String name;
+    std::string name;
     ASTContext* context;
 public:
     ASTElementInterface();
@@ -55,7 +57,7 @@ public:
     friend class ASTContext;
 protected:
     ASTSymbolType type;
-    String name;
+    std::string name;
     ASTContext* context;
 public:
     ASTElementInterface_operator();
@@ -83,7 +85,7 @@ public:
     friend class ASTContext;
 protected:
     ASTSymbolType type;
-    String name;
+    std::string name;
     ASTContext* context;
 public:
     ASTElementInterface_function();
@@ -97,7 +99,7 @@ public:
     friend class ASTContext;
 protected:
     ASTSymbolType type;
-    String name;
+    std::string name;
     ASTContext* context;
 public:
     ASTElementInterface_variable();
@@ -114,13 +116,13 @@ public:
 #define AST_CLASS(x) class x:public ASTElement {public:x();~x();};   \
                      class x##_interface:public ASTElementInterface{ \
                          public:x##_interface(){} ~x##_interface(){} \
-                         public:Array<String> members;               \
+                         public:std::vector<String> members;               \
                          public:virtual x* create(){ return new x();} };
 #define AST_OPERATOR
 #define AST_VAR
 
 
-#define AST_EXPORT(x) AST_MODULE_SYMBOLS.append(new x##_interface());
+#define AST_EXPORT(x) AST_MODULE_SYMBOLS.push_back(new x##_interface());
 namespaceEnd
 EXTERN_C_END
 

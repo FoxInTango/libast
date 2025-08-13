@@ -13,7 +13,7 @@ ASTContext::~ASTContext(){}
 Error ASTContext::execute(){
     /** 全域
      */
-    return this->symbolMap[this->entry] ? this->symbolMap[this->entry]->execute(this,this) : 1;
+    return this->symbolMap[this->entry] ? this->symbolMap[this->entry]->execute(this, this) : 1;
     return 0;
 }
 
@@ -27,7 +27,7 @@ Error ASTContext::loadModule(const char* path){
     if(module){
         ModuleInterface* interface = module->interface();
         if(interface){
-            Array<ASTElementInterface*>* symbols = static_cast<Array<ASTElementInterface*>*>(interface->exportVariable("AST_MODULE_SYMBOLS"));
+            std::vector<ASTElementInterface*>* symbols = static_cast<std::vector<ASTElementInterface*>*>(interface->exportVariable("AST_MODULE_SYMBOLS"));
 
             if(symbols){
                 /** insert symbols to context

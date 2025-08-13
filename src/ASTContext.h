@@ -34,19 +34,21 @@ SOFTWARE.
 #include <libmodule/libmodule.h>
 #include <libstring/libstring.h>
 #include <libcpp/libcpp.h>
+#include <map>
+#include <vector>
 EXTERN_C_BEGIN
 namespaceBegin(foxintango)
 class foxintangoAPI ASTContext :public ASTScope{
 public:
-Array<ASTElement*>  stack;
-Array<ASTDocument*> documents;
+    std::vector<ASTElement*>  stack;
+    std::vector<ASTDocument*> documents;
 
 /** scope
 Array<ASTElementInterface*> symbols;
 Map<String,Index>  symbolMap;
 */
 //Index entry;
-String entry;
+std::string entry;
 public:
     ASTContext();
    ~ASTContext();
